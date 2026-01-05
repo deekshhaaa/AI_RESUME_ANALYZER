@@ -1,0 +1,57 @@
+body {
+  background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+  min-height: 100vh;
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+  color: #fff;
+  transition: background 0.5s;
+}
+
+.card, .resume-card, .details, .summary {
+  background: rgba(255,255,255,0.1);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255,255,255,0.18);
+  transition: box-shadow 0.3s, transform 0.3s;
+}
+
+.card:hover, .resume-card:hover {
+  box-shadow: 0 16px 40px 0 rgba(31, 38, 135, 0.47);
+  transform: translateY(-4px) scale(1.03);
+}
+
+button, .score-badge, .score-circle {
+  background: linear-gradient(90deg, #ff512f 0%, #dd2476 100%);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.6em 1.2em;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(221,36,118,0.15);
+  transition: background 0.3s, transform 0.2s;
+}
+
+button:hover, .score-badge:hover, .score-circle:hover {
+  background: linear-gradient(90deg, #dd2476 0%, #ff512f 100%);
+  transform: scale(1.05);
+}
+
+.navbar {
+  background: rgba(0,0,0,0.5);
+  border-bottom: 2px solid #2575fc;
+  box-shadow: 0 2px 8px rgba(106,17,203,0.15);
+}
+
+input, textarea {
+  background: rgba(255,255,255,0.2);
+  color: #fff;
+  border: 1px solid #2575fc;
+  border-radius: 8px;
+  padding: 0.5em;
+  transition: border 0.3s;
+}
+
+input:focus, textarea:focus {
+  border: 1.5px solid #ff512f;
+  outline: none;
+}

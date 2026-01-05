@@ -58,7 +58,10 @@ interface PuterStore {
   };
 
   fs: {
-    write: (path: string, data: string | File | Blob) => Promise<File | undefined>;
+    write: (
+      path: string,
+      data: string | File | Blob
+    ) => Promise<File | undefined>;
     read: (path: string) => Promise<Blob | undefined>;
     upload: (files: File[] | Blob[]) => Promise<FSItem | undefined>;
     delete: (path: string) => Promise<void>;
@@ -194,11 +197,31 @@ ${instructions}
     },
 
     fs: {
-      write: (p, d) => getPuter()?.fs.write(p, d),
-      read: (p) => getPuter()?.fs.read(p),
-      upload: (f) => getPuter()?.fs.upload(f),
-      delete: (p) => getPuter()?.fs.delete(p),
-      readDir: (p) => getPuter()?.fs.readdir(p),
+      write: (p, d) => {
+        const puter = getPuter();
+        if (!puter?.fs?.write) throw new Error("Puter FS not available");
+        return puter.fs.write(p, d);
+      },
+      read: (p) => {
+        const puter = getPuter();
+        if (!puter?.fs?.read) throw new Error("Puter FS not available");
+        return puter.fs.read(p);
+      },
+      upload: (f) => {
+        const puter = getPuter();
+        if (!puter?.fs?.upload) throw new Error("Puter FS not available");
+        return puter.fs.upload(f);
+      },
+      delete: (p) => {
+        const puter = getPuter();
+        if (!puter?.fs?.delete) throw new Error("Puter FS not available");
+        return puter.fs.delete(p);
+      },
+      readDir: (p) => {
+        const puter = getPuter();
+        if (!puter?.fs?.readdir) throw new Error("Puter FS not available");
+        return puter.fs.readdir(p);
+      },
     },
 
     ai: {
